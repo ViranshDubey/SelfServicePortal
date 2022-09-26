@@ -1,6 +1,6 @@
 /// <reference types="cypress">
 
-describe('empty spec', () => {
+describe('Self-service Portal: Create Ticket', () => {
 
   // Set default wait time for network to be idle
   const defaultWait = 10000;
@@ -37,7 +37,7 @@ describe('empty spec', () => {
         cy.get("INPUT[id='j_password']").type('Selfservice123')
 
         // Click login
-        cy.get("BUTTON[type='submit']").click() // .waitForNetworkIdle('@sapCalls', defaultWait)
+        cy.get("BUTTON[type='submit']").click().waitForNetworkIdle('@sapCalls', defaultWait)
       }
     })
   })
@@ -52,7 +52,7 @@ describe('empty spec', () => {
       if (val) {
         cy.contains("DIV[dir='auto']", "Ticket Detail")
           .click()
-        // .waitForNetworkIdle('@sapCalls', defaultWait)
+          .waitForNetworkIdle('@sapCalls', defaultWait)
       }
     })
   })
@@ -82,6 +82,7 @@ describe('empty spec', () => {
     cy.contains("DIV[class='css-901oao']", "Create Ticket").click()
   })
 
+  /*
   it(`Step ${++counter} : Click Ok/Successful button`, () => {
 
     cy.on('fail', (error, runnable) => {
@@ -89,6 +90,26 @@ describe('empty spec', () => {
     })
 
     cy.get("BUTTON:nth-child(3) > DIV:nth-child(1)").click()
+  })
+  */
+
+  it(`Step ${++counter} : Click Ticket History`, () => {
+
+    cy.contains("DIV[class='css-901oao']", "Ticket History")
+      .click()
+      .waitForNetworkIdle('@sapCalls', defaultWait)
+  })
+
+  it(`Step ${++counter} : Enter search value`, () => {
+    cy.get("INPUT:nth-child(1)")
+      .type("7739")
+      .waitForNetworkIdle('@sapCalls', defaultWait)
+  })
+
+  it(`Step ${++counter} : Display ticket`, () => {
+    cy.get("DIV:nth-child(5) > DIV:nth-child(1)")
+      .click()
+      .waitForNetworkIdle('@sapCalls', defaultWait)
   })
 
 })
