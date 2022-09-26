@@ -1,0 +1,6 @@
+node_modules
+cypress/video/
+cypress/support
+cypress/fixtures
+cypress/downloads
+*.mp4

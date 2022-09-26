@@ -1,0 +1,27 @@
+{
+  "name": "selfserviceportal",
+  "version": "1.0.0",
+  "description": "Self Service Portal",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "cypress:open": "cypress open",
+    "cypress": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViranshDubey/SelfServicePortal.git"
+  },
+  "devDependencies": {
+    "cypress": "^10.8.0",
+    "cypress-network-idle": "^1.10.0",
+    "cypress-wait-for-stable-dom": "^0.0.3",
+    "cypress-wait-until": "^1.7.2"
+  },
+  "author": "Vishal Dubey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViranshDubey/SelfServicePortal/issues"
+  },
+  "homepage": "https://github.com/ViranshDubey/SelfServicePortal#readme"
+}
