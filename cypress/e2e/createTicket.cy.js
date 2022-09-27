@@ -34,7 +34,9 @@ describe('Self-service Portal: Create Ticket', () => {
         cy.get("INPUT[id='j_username']").type('vishal.kumar.dubey@sap.com')
 
         // Enter password
-        cy.get("INPUT[id='j_password']").type('Selfservice123')
+        cy.get("INPUT[id='j_password']").type('Selfservice123', {
+          log: false
+        })
 
         // Click login
         cy.get("BUTTON[type='submit']").click().waitForNetworkIdle('@sapCalls', defaultWait)
@@ -82,7 +84,7 @@ describe('Self-service Portal: Create Ticket', () => {
     cy.contains("DIV[class='css-901oao']", "Create Ticket").click()
   })
 
-  /*
+
   it(`Step ${++counter} : Click Ok/Successful button`, () => {
 
     cy.on('fail', (error, runnable) => {
@@ -91,7 +93,6 @@ describe('Self-service Portal: Create Ticket', () => {
 
     cy.get("BUTTON:nth-child(3) > DIV:nth-child(1)").click()
   })
-  */
 
   it(`Step ${++counter} : Click Ticket History`, () => {
 
