@@ -25,3 +25,9 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import 'cypress-network-idle';
 import 'cypress-wait-until';
+
+Cypress.Commands.add('parseXlsx', (inputFile) => {
+    return cy.task('parseXlsx', {
+        filePath: inputFile
+    })
+})
