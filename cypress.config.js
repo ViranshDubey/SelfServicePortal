@@ -23,7 +23,7 @@ module.exports = {
 
     },
     // excludeSpecPattern: "**/e2e/searchTicket.cy.js"
-    excludeSpecPattern: "**/e2e/createTicket.cy.js"
+    // excludeSpecPattern: "**/e2e/createTicket.cy.js"
   },
 };
 

@@ -71,9 +71,10 @@ describe('Self-service Portal: Create Ticket', () => {
 
     cy.url().should("include", "appgyver/page.Page4.html").then((val) => {
       if (val) {
-        cy.contains("DIV[dir='auto']", "Report an Issue")
-          .click()
-          .waitForNetworkIdle('@sapCalls', defaultWait)
+        /* cy.contains("DIV[dir='auto']", "Report an Issue")
+           .click()
+           .waitForNetworkIdle('@sapCalls', defaultWait)
+           */
       }
     })
   })
@@ -90,6 +91,11 @@ describe('Self-service Portal: Create Ticket', () => {
       console.log("Xl Data")
       console.log(xlData)
       for (let i = 0; i < xlData.length; i++) {
+
+        //Navigate to creation screen
+        cy.contains("DIV[dir='auto']", "Report an Issue")
+          .click()
+          .waitForNetworkIdle('@sapCalls', defaultWait)
 
         // Processing type code
         if (xlData[i].Processing_Type_Code !== undefined) {
@@ -134,16 +140,16 @@ describe('Self-service Portal: Create Ticket', () => {
          .attachFile("C:\\Users\\I355920\\OneDrive - SAP SE\\Desktop\\out.txt") */
 
 
-         // Click create ticket button
-         cy.contains("DIV[class='css-901oao']", "Create Ticket")
-         .click()
-         .waitForNetworkIdle('@sapCalls', defaultWait)
+        // Click create ticket button
+        cy.contains("DIV[dir='auto']", "Submit")
+          .click()
+          .waitForNetworkIdle('@sapCalls', defaultWait)
 
 
-         cy.on('fail', (error, runnable) => {
+        cy.on('fail', (error, runnable) => {
           return false
         })
-    
+
         cy.get("BUTTON:nth-child(3) > DIV:nth-child(1)").click()
 
       }
